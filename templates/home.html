@@ -1,0 +1,298 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: cursive;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("https://wallpaperplay.com/walls/full/1/1/2/113081.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.glow {
+  font-size: 25px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+#div1 {
+  border-radius: 25px;
+  background: #EC4D37;
+  padding: 150px;
+  width: 700px;
+  height: 150px;
+  position: fixed;
+  left: 150px;
+  top:100px;
+}
+.button {
+  background-color: #a1a29f;
+  border: none;
+  color: black;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 8px 4px;
+  border-radius: 8px;
+  left:200px
+}
+#textbox1{
+position:  fixed;
+top:200px;
+left: 460px;
+}
+#textbox2{
+position:  fixed;
+top:200px;
+left: 700px;
+}
+#textbox3{
+position:  fixed;
+top:100px;
+left: 220px;
+}
+input[type=text]:focus {
+  border: 3px solid #555;
+}
+#fixed{
+border-radius: 16px;
+  position: fixed;
+  bottom:460px;
+  text-align: center;
+  left:450px;
+  width: 430px;
+}
+#add{
+position:fixed;
+top:250px;
+left:460px;
+}
+#sub{
+position:fixed;
+top:250px;
+left:560px;
+}
+#mul{
+position:fixed;
+top:250px;
+left:720px;
+}
+#root{
+position:fixed;
+top:230px;
+left:150px;
+}
+#evaluate{
+position:fixed;
+top:230px;
+left:320px;
+}
+#div{
+position:fixed;
+top:330px;
+left:460px;
+}
+#pow{
+position:fixed;
+top:330px;
+left:580px;
+}
+#nroot{
+position:fixed;
+top:330px;
+left:720px;
+}
+#fact{
+position:fixed;
+top:300px;
+left:150px;
+}
+#isprime{
+position:fixed;
+top:300px;
+left:320px;
+}
+#sin{
+position:fixed;
+top:375px;
+left:150px;
+}
+#cos{
+position:fixed;
+top:450px;
+left:150px;
+}
+#tan{
+position:fixed;
+top:375px;
+left:230px;
+}
+#exp{
+position:fixed;
+top:375px;
+left:343px;
+}
+#log10{
+position:fixed;
+top:450px;
+left:240px;
+}
+#log{
+position:fixed;
+top:450px;
+left:357px;
+}
+#gcd{
+position:fixed;
+top:400px;
+left:460px;
+}
+#hyp{
+position:fixed;
+top:400px;
+left:720px;
+}
+#conv{
+position:fixed;
+top:150px;
+left:150px;
+}
+#rem{
+position:fixed;
+top:400px;
+left:570px;
+}
+img{
+border-radius: 15px;
+height:250px;
+}
+#albert{
+position:fixed;
+left:880px;
+top:200px;
+}
+#res{
+border-radius: 20px;
+  position:fixed;
+  top: 475px;
+  left:460px;
+  font-size:25px;
+  text-align: left;
+  padding:10px;
+  right:100px;
+  height:50px;
+  width: 400px;
+background: #FFA500;
+}
+.button:hover {background-color: #3e8e41}
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #32CD32;
+  color: black;
+  height:16%;
+  text-align: center;
+}
+</style>
+</head>
+<body class="bg">
+<div id="div1">
+{% block content %}
+    <div id="fixed" style="background-color:lightblue;align:'center'">
+  <h3 class="glow">All in One Calculator</h3>
+</div>
+    <div id="albert"><img src="https://media1.giphy.com/media/xULW8q4fONlOSQhT0I/giphy.gif"></div>
+<form action="solution" method="post">
+    {% csrf_token %}
+    <div id="textbox1">
+        <br><input type="text" name="num1" size="20" placeholder="Enter 1st Number" maxlength="15" style="height:25px;width:160px;font-size:14pt;"></div>
+     <div id="textbox2"><br><input type="text" name="num2" size="20" placeholder="Enter 2nd Number" maxlength="15" style="height:25px;width:160px;font-size:14pt;">
+        </div>
+    <div id="textbox3"><br><input type="text" name="num3" size="20" placeholder="Enter a Number" maxlength="15" style="height:25px;width:160px;font-size:14pt;">
+        </div>
+    <div id="add">
+        <input type="submit" class='button' name='add' value="ADD"></div><br><br>
+    <div id="sub">
+    <input type="submit" class='button' name='subtract' value="SUBTRACT"></div>
+    <div id="mul">
+    <input type="submit" class='button' name='multiply' value="MULTIPLY"></div>
+    <div id="div">
+    <input type="submit" class='button' name='divide' value="DIVIDE"></div>
+    <div id="root">
+    <input type="submit" class='button' name='root' value="SQA. ROOT"></div>
+    <div id="evaluate">
+    <input type="submit" class='button' name='evaluate' value="Evaluate"></div>
+    <div id="pow">
+    <input type="submit" class='button' name='pow' value="POWER"></div>
+     <div id="nroot">
+    <input type="submit" class='button' name='nroot' value="Nth ROOT"></div>
+    <div id="fact">
+    <input type="submit" class='button' name='fact' value="FACTORIAL"></div>
+    <div id="gcd">
+    <input type="submit" class='button' name='gcd' value="GCD"></div>
+    <div id="rem">
+    <input type="submit" class='button' name='rem' value="Remainder"></div>
+    <div id="sin">
+    <input type="submit" class='button' name='sin' value="SIN"></div>
+    <div id="cos">
+    <input type="submit" class='button' name='cos' value="COS"></div>
+    <div id="tan">
+    <input type="submit" class='button' name='tan' value="TAN"></div>
+    <div id="log10">
+    <input type="submit" class='button' name='log10' value="LOG10"></div>
+     <div id="log">
+    <input type="submit" class='button' name='log' value="LOG"></div>
+    <div id="exp">
+    <input type="submit" class='button' name='exp' value="e^n"></div>
+     <div id="isprime">
+    <input type="submit" class='button' name='isprime' value="Is Prime?"></div>
+    <div id="hyp">
+    <input type="submit" class='button' name='hyp' value="Hypotenuse"></div>
+    <div id="conv">
+    <input type="submit" class='button' name='conv' value="Number system Conversion"></div>
+    <div id="res" style="align:'center'">{{res}}</div>
+</form>
+    <div class="footer">
+        <h3><a href="https://github.com/manthanraut" target="_blank">Github Link</a></h3>
+        <h3><a href="https://www.hackerrank.com/manthanraut16" target="_blank">HackerRank Link</a></h3>
+    </div>
+{% endblock %}
+    </div>
+
+</body>
+</html>
